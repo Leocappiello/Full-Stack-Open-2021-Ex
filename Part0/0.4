@@ -1,0 +1,23 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{"content":"or maybe they try to be sure that response was sent to server... :))","date":"2022-01-13T14:32:23.844Z"}, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+
+browser->server: HTTP POST {note: 'hello devs'}
+
+![image](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=YnJvd3Nlci0-c2VydmVyOiBIVFRQIEdFVCBodHRwczovL3N0dWRpZXMuY3MuaGVsc2lua2kuZmkvZXhhbXBsZWFwcC9ub3RlcwoAOwYtLT4ATAc6IEhUTUwtY29kZQoAIkRtYWluLmNzAFUUABIJAB9JagBOGWpzCgpub3RlIG92ZXIgAIFkCACBWgggc3RhcnRzIGV4ZWN1dGluZyBqcwCBfQZ0aGF0IHJlcXVlc3RzIEpTT04gZGF0YSBmcm9tIACCdwYgCmVuZCBub3RlCgCBbUVkYXRhLmpzb24AgwkTW3siY29udGVudCI6Im9yIG1heWJlIHRoZXkgdHJ5IHRvIGJlIHN1cmUgAIEyB3Nwb25zZSB3YXMgc2VudCB0bwCBLwcuLi4gOikpIiwiZGF0ZSI6IjIwMjItMDEtMTNUMTQ6MzI6MjMuODQ0WiJ9LCAuLi5dAIIjHQCCMwZlcyB0aGUgZXZlbnQgaGFuZGxlcgCCOghuZGVycwCCIQVzIHRvIGRpc3BsYXkAghohUE9TVCB7bm90ZTogJ2hlbGxvIGRldnMnfQ&s=default)
